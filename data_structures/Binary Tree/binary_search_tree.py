@@ -32,7 +32,7 @@ class Node:
     def getParent(self):
         return self.parent
 
-    def setParent(self, parent):
+    def setParent(self, parent): 
         self.parent = parent
 
 class BinarySearchTree:
