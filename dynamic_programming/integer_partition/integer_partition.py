@@ -18,6 +18,19 @@ print("dp: ",dp(5))
 '''变种'''
 
 #增加限制条件，每一种划分方案的组成元素不重复
+
+'''
+1.n=0：return 1,当n=0时，表示已经分完
+
+1.m<1 :return 0：m=0的时候无法继续划分
+
+3.n<m:p(n,m)=p(n,n) 
+
+4.p(n,m)=p(n-m,m-1)+p(n,m-1) :p(n-m,m-1)表示先拿出一个m，剩下的n-m在n1<=m-1的划分数；p(n,m-1)指n在n1<=m-1的划分数
+'''
+
+#动态规划：状态转移方程：dp[i][j]=dp[i-j][j-1]+dp[i,j-1]
+
 def dp_set(n):
     dp = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
     dp[0][0] = 1
@@ -31,7 +44,7 @@ def dp_set(n):
 
 print("dp_set: ",dp_set(5))
 
-#增加限制条件，每一种划分方案规定元素个数
+'''增加限制条件，每一种划分方案规定元素个数'''
 #递归
 def rp_limitItem(n,m):
     if n==1 or m == 1:
