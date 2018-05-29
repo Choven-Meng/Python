@@ -4,6 +4,12 @@
 
 These are for demonstration purposes only. There are many implementations of sorts in the Python standard library that are much better for performance reasons.
 
+## Dynamic Program
+
+  ### [Knapsack](https://github.com/Choven-Meng/Python_Algorithms/tree/master/dynamic_programming/knapsack)
+
+---
+
 ## Sort Algorithms
 
 
