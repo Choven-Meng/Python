@@ -6,10 +6,11 @@ These are for demonstration purposes only. There are many implementations of sor
 
 ## Dynamic Programming
 
-  ### [Knapsack](https://github.com/Choven-Meng/Python_Algorithms/tree/master/dynamic_programming/knapsack)
+  ###   [Knapsack](https://github.com/Choven-Meng/Python_Algorithms/tree/master/dynamic_programming/knapsack)
   
-  ### [coin-change](https://github.com/Choven-Meng/Python_Algorithms/tree/master/dynamic_programming/coin-change)
-
+  ###   [coin-change](https://github.com/Choven-Meng/Python_Algorithms/tree/master/dynamic_programming/coin-change)
+  
+  ###   [longest_common_subsequence](https://github.com/Choven-Meng/Python_Algorithms/tree/master/dynamic_programming/longest_common_subsequence)
 ---
 
 ## Sort Algorithms
