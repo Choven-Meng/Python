@@ -26,6 +26,28 @@ Yj=﹤y1，⋯，yj﹥即Y序列的前j个字符 (1≤j≤n)（前缀）
 
   > 也就是说，解决这个LCS问题，你要求三个方面的东西：1、LCS（Xm-1，Yn-1）+1；2、LCS（Xm-1，Y），LCS（X，Yn-1）；3、max{LCS（Xm-1，Y），LCS（X，Yn-1）}。
 
+### 最长公共子序列的结构
+
+最长公共子序列的结构有如下表示：
+
+设序列X=<x1, x2, …, xm>和Y=<y1, y2, …, yn>的一个最长公共子序列Z=<z1, z2, …, zk>，则：
+
+> 1.若xm=yn，则zk=xm=yn且Zk-1是Xm-1和Yn-1的最长公共子序列；
+> 2.若xm≠yn且zk≠xm ，则Z是Xm-1和Y的最长公共子序列；
+> 3.若xm≠yn且zk≠yn ，则Z是X和Yn-1的最长公共子序列。
+> 其中Xm-1=<x1, x2, …, xm-1>，Yn-1=<y1, y2, …, yn-1>，Zk-1=<z1, z2, …, zk-1>。
+
+### 子问题的递归结构
+
+    由最长公共子序列问题的最优子结构性质可知，要找出X=<x1, x2, …, xm>和Y=<y1, y2, …, yn>的最长公共子序列，可按以下方式递归地进行：当xm=yn时，找出Xm-1和Yn-1的最长公共子序列，然后在其尾部加上xm(=yn)即可得X和Y的一个最长公共子序列。当xm≠yn时，必须解两个子问题，即找出Xm-1和Y的一个最长公共子序列及X和Yn-1的一个最长公共子序列。这两个公共子序列中较长者即为X和Y的一个最长公共子序列。
+
+    由此递归结构容易看到最长公共子序列问题具有子问题重叠性质。例如，在计算X和Y的最长公共子序列时，可能要计算出X和Yn-1及Xm-1和Y的最长公共子序列。而这两个子问题都包含一个公共子问题，即计算Xm-1和Yn-1的最长公共子序列。
+
+    与矩阵连乘积最优计算次序问题类似，我们来建立子问题的最优值的递归关系。用c[i,j]记录序列Xi和Yj的最长公共子序列的长度。其中Xi=<x1, x2, …, xi>，Yj=<y1, y2, …, yj>。当i=0或j=0时，空序列是Xi和Yj的最长公共子序列，故c[i,j]=0。其他情况下，由定理可建立递归关系如下：
+
+
+
+
 <img src="https://github.com/Choven-Meng/Python_Algorithms/blob/master/photo/lcs.png" width="25%" height="25%" />
 
 <img src="https://github.com/Choven-Meng/Python_Algorithms/blob/master/photo/lcs_run.png" width="25%" height="25%" />
