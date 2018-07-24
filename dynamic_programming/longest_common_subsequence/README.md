@@ -12,15 +12,16 @@
 
 记:
 
-Xi=﹤x1，⋯，xi﹥即X序列的前i个字符 (1≤i≤m)（前缀）
+X<sub>i</sub>=﹤x<sub>1</sub>，⋯，x<sub>i</sub>﹥即X序列的前i个字符 (1≤i≤m)（前缀）
 
-Yj=﹤y1，⋯，yj﹥即Y序列的前j个字符 (1≤j≤n)（前缀）
+Y<sub>j</sub>=﹤y<sub>1</sub>，⋯，y<sub>j</sub>﹥即Y序列的前j个字符 (1≤j≤n)（前缀）
 
-假定Z=﹤z1，⋯，zk﹥∈LCS(X , Y)。
+假定Z=﹤z<sub>1</sub>，⋯，z<sub>k</sub>﹥∈LCS(X , Y)。
 
-  > 若xm=yn（最后一个字符相同），则不难用反证法证明：该字符必是X与Y的任一最长公共子序列Z（设长度为k）的最后一个字符，即有zk = xm = yn 且显然有Zk-1∈LCS(Xm-1 , Yn-1)即Z的前缀Zk-1是Xm-1与Yn-1的最长公共子序列。此时，问题化归成求Xm-1与Yn-1的LCS（LCS(X , Y)的长度等于LCS(Xm-1 , Yn-1)的长度加1）。
+  > 若x<sub>m</sub>=y<sub>n</sub>（最后一个字符相同），则不难用反证法证明：该字符必是X与Y的任一最长公共子序列Z（设长度为k）的最后一个字符，即有
+  z<sub>k</sub> = x<sub>m</sub> = y<sub>n</sub> 且显然有Z<sub>k</sub>-1∈LCS(X<sub>m</sub>-1 , Y<sub>n</sub>-1),即Z的前缀Z<sub>k</sub>-1是X<sub>m</sub>-1与Y<sub>n</sub>-1的最长公共子序列。此时，问题化归成求X<sub>m</sub>-1与Y<sub>n</sub>-1的LCS（LCS(X , Y)的长度等于LCS(X<sub>m</sub>-1 , Y<sub>n</sub>-1)的长度加1）。
 
-  > 若xm≠yn，则亦不难用反证法证明：要么Z∈LCS(Xm-1, Y)，要么Z∈LCS(X , Yn-1)。由于zk≠xm与zk≠yn其中至少有一个必成立，若zk≠xm则有Z∈LCS(Xm-1 , Y)，类似的，若zk≠yn 则有Z∈LCS(X , Yn-1)。此时，问题化归成求Xm-1与Y的LCS及X与Yn-1的LCS。LCS(X , Y)的长度为：max{LCS(Xm-1 , Y)的长度, LCS(X , Yn-1)的长度}。
+  > 若x<sub>m</sub>≠y<sub>n</sub>，则亦不难用反证法证明：要么Z∈LCS(X<sub>m</sub>-1, Y)，要么Z∈LCS(X , Y<sub>n</sub>-1)。由于z<sub>k</sub> ≠ <sub>m</sub>与z<sub>k</sub> ≠ y<sub>n</sub>其中至少有一个必成立，若z<sub>k</sub> ≠ x<sub>m</sub>则有Z∈LCS(X<sub>m</sub>-1 , Y)，类似的，若z<sub>k</sub> ≠ y<sub>n</sub> 则有Z∈LCS(X , Y<sub>n</sub>-1)。此时，问题化归成求X<sub>m</sub>-1与Y的LCS及X与Y<sub>n</sub>-1的LCS。LCS(X , Y)的长度为：max{LCS(X<sub>m</sub>-1 , Y)的长度, LCS(X , Y<sub>n</sub>-1)的长度}。
 
   > 由于上述当xm≠yn的情况中，求LCS(Xm-1 , Y)的长度与LCS(X , Yn-1)的长度，这两个问题不是相互独立的：两者都需要求LCS(Xm-1，Yn-1)的长度。另外两个序列的LCS中包含了两个序列的前缀的LCS，故问题具有最优子结构性质考虑用动态规划法。
 
