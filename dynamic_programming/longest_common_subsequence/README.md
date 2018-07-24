@@ -46,9 +46,9 @@ Y<sub>j</sub>=﹤y<sub>1</sub>，⋯，y<sub>j</sub>﹥即Y序列的前j个字�
 
  > 与矩阵连乘积最优计算次序问题类似，我们来建立子问题的最优值的递归关系。用c[i,j]记录序列Xi和Yj的最长公共子序列的长度。其中Xi=<x1, x2, …, xi>，Yj=<y1, y2, …, yj>。当i=0或j=0时，空序列是Xi和Yj的最长公共子序列，故c[i,j]=0。其他情况下，由定理可建立递归关系如下：
 
-    if i = 0 or j = 0 ,c[i,j] = 0;  
-    if i,j > 0 and  x<sub>i</sub>  == y<sub>i</sub> , c[i,j] = c[i-1,j-1]+1;  
-    if i,j > 0 and  x<sub>i</sub> != y<sub>i</sub> , c[i,j] = max(c[i,j-1],c[i-1,j])
+   if i = 0 or j = 0 ,c[i,j] = 0;  
+   if i,j > 0 and  x<sub>i</sub>  == y<sub>i</sub> , c[i,j] = c[i-1,j-1]+1;  
+   if i,j > 0 and  x<sub>i</sub> != y<sub>i</sub> , c[i,j] = max(c[i,j-1],c[i-1,j])
     
 由算法LCS计算得到的数组L可用于快速构造序列X=<x1, x2, …, xm>和Y=<y1, y2, …, yn>的最长公共子序列。首先从L[i,j]开始，沿着其中的箭头所指的方向在数组L中搜索。  
 
